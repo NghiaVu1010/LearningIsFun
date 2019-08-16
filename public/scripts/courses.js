@@ -1,16 +1,27 @@
 /*
-* Description: 
+* Description: Display courses currently offered
 *
 * Author: Neo
 */
 "use strict";
 
+/*
+* Handle data to be displayed
+*/
 function displayData(list) {
     for(let i = 0; i < list.length; i++) {
         insertTableRow(list[i]);
     }
 }
 
+/*
+* Insert data into table with a new row
+* 
+* @param courseId (String) - set value to courseId data
+* @param courseTitle (String) - set value to Title data
+* @param courseMeets (String) - set value to Meets data
+* @param element (Object) - Create an row element to build table
+*/
 function insertTableRow(list) {
     let courseId = list.CourseId;
     let courseTitle = list.Title;
@@ -39,6 +50,7 @@ function buildList(dropdown, list) {
 }
 
 $(function() {
+    //dynamically build DDL with categories
     let categoryData;
     $.getJSON("/api/categories", function(data) {
         categoryData = data;
@@ -46,9 +58,11 @@ $(function() {
         buildList($("#coursesDDL"), categoryData);
     });
 
+    //populate table based on selection
     let courseData;
     $("#coursesDDL").on("change", function() {
         $("#coursesBody").empty();
+
         if($("#coursesDDL").val() == "") {
             $("#coursesTable").hide();
             return false;
@@ -57,14 +71,22 @@ $(function() {
 
         $.getJSON("/api/courses/bycategory/" + $("#coursesDDL").val(), function(data) {
             courseData = data;
-
             displayData(courseData);
         });
     });
     
-    // $("#addBtn").on("click", function() {
-    //     location.href = "details.html";
-    // });
+    //preload all courses
+    let allData;
+    $.getJSON("/api/courses", function(data) {
+        allData = data;
+    });
+
+    //displays all courses currently offered when clicked
+    $("#viewAllBtn").on("click", function() {
+        $("#coursesBody").empty();
+        $("#coursesTable").show();
+        displayData(allData);
+    });
 
     // Bind Click Event Handler to Reset Buttom
     $("#resetBtn").on("click", function() {

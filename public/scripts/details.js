@@ -42,7 +42,7 @@ $(function() {
     });
 
     $("#registerBtn").on("click", function() {
-        location.href = "register.html";
+        location.href = "register.html?courseId=" + courseId;
     });
 
     $("#cancelBtn").on("click", function() {
