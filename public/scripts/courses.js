@@ -7,9 +7,7 @@
 
 function displayData(list) {
     for(let i = 0; i < list.length; i++) {
-        if($("#coursesDDL").val() == list[i].Category) {
-            insertTableRow(list[i]);
-        }
+        insertTableRow(list[i]);
     }
 }
 
@@ -29,16 +27,13 @@ function insertTableRow(list) {
 }
 
 /*
-* Build generic dropdown list from 1D array
+* Build generic dropdown list
 * 
 * @param element (Object) - Create an option element to build drop down
 */
 function buildList(dropdown, list) {
     for(let i = 0; i < list.length; i++) {
-        let element = document.createElement("option");
-        element.text = list[i].Category;
-        element.value = list[i].Category;
-
+        let element = $("<option>", {text: list[i].Category, value: list[i].Value});
         dropdown.append(element);
     }
 }
@@ -52,17 +47,19 @@ $(function() {
     });
 
     let courseData;
-    $.getJSON("/api/courses", function(data) {
-        courseData = data;
-    });
-
     $("#coursesDDL").on("change", function() {
         $("#coursesBody").empty();
-
-        if($("#coursesDDL").val() == "") $("#coursesTable").hide();
+        if($("#coursesDDL").val() == "") {
+            $("#coursesTable").hide();
+            return false;
+        }
         else $("#coursesTable").show();
 
-        displayData(courseData);
+        $.getJSON("/api/courses/bycategory/" + $("#coursesDDL").val(), function(data) {
+            courseData = data;
+
+            displayData(courseData);
+        });
     });
     
     // $("#addBtn").on("click", function() {
