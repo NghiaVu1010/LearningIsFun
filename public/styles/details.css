@@ -1,16 +1,9 @@
-body {
-    background-image: url("/images/classroom.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    padding-bottom: 65.89%;
-}
-
 .space-top {
     padding-top: 70px;
 }
 
 .data-point {
-    font-size: 7rem;
+    font-size: 3rem;
     font-weight: bold;
     font-family: "arial black", helvetica, arial, sans-serif;
     letter-spacing: -5px;

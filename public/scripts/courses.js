@@ -93,6 +93,5 @@ $(function() {
     $("#resetBtn").on("click", function() {
         $("#coursesBody").empty();
         $("#coursesTable").hide();
-        
     });
 });
