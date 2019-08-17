@@ -10,7 +10,6 @@ function registerCourse() {
         $("#msgDiv").text("Registered!");
     });
 
-    //console.log("we in?");
     return false;
 }
 
@@ -23,9 +22,11 @@ $(function() {
     $("#registerBtn").on("click", function() {
         //alert("Feature Pending");
         registerCourse();
+        alert("Successfully Registered!");
+        location.href = "details.html?courseId=" + courseId;
     });
 
     $("#cancelBtn").on("click", function() {
-        location.href = "courses.html";
+        location.href = "details.html?courseId=" + courseId;
     });
 });

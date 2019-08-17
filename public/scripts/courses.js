@@ -31,10 +31,11 @@ function insertTableRow(list) {
     "<tr><td>" + courseId + 
     "</td><td>" + courseTitle + 
     "</td><td>" + courseMeets + 
-    "</td><td><a href='details.html?courseId=" + courseId + "'>View Details</a>"+ 
+    "</td><td><a href='details.html?courseId=" + courseId + "'>View Details</a>" + 
     "</a></td></tr>";
 
     $("#coursesBody").append(element);
+    $("#coursesBody tr td a").addClass("anchorDetail");
 }
 
 /*
@@ -90,7 +91,8 @@ $(function() {
 
     // Bind Click Event Handler to Reset Buttom
     $("#resetBtn").on("click", function() {
-        $("#coursesTable").hide();
         $("#coursesBody").empty();
+        $("#coursesTable").hide();
+        
     });
 });

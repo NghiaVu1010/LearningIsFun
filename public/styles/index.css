@@ -62,17 +62,3 @@ body {
 .featurette {
     height: 400px; 
 }
-
-.center {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.obli {
-    font-style: oblique;
-}
-
-.white {
-    color: #ffffff;
-}
