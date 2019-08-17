@@ -2,6 +2,7 @@ body {
     background-image: url("/images/classroom.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    padding-bottom: 65.89%;
 }
 
 .space-top {
