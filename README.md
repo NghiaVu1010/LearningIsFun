@@ -1,7 +1,7 @@
 # LearningIsFun
 
 ## Goal
-  The goal of this website is to get students to come and learn!
+  RIT is a website to help you enroll in courses that you are interested in. View and find courses that you would like to take and register for them easily.
   
 ## Technologies
   Bootstrap4
