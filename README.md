@@ -12,7 +12,7 @@
   Neo
   
 ## Home Page
-![RIT](public/images/Homepage.jpg)
+![RIT](https://github.com/NghiaVu1010/LearningIsFun/blob/master/public/images/HomePage.jpg)
 
 ## Setup
 Clone / Fork / Download Repo then run ```npm install```.
