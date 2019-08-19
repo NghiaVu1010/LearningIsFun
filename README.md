@@ -11,6 +11,9 @@
 ## Authors
   Neo
   
+## Home Page
+![RIT](/public/images/Homepage.jpg)
+
 ## Setup
 Clone / Fork / Download Repo then run ```npm install```.
 
