@@ -7,9 +7,13 @@
 
 //send the data to server
 function registerCourse() {
-    $.post("api/register", $("#registerForm").serialize(), function(data) {
-        alert("Registered successfully!");
-    });
+    $.post("api/register", $("#registerForm").serialize(), function(data) {})
+        .done(function() {
+            alert("Registered successfully!");
+        })
+        .fail(function() {
+            alert("There was a problem, please try again.");
+        });
 
     return false;
 }
