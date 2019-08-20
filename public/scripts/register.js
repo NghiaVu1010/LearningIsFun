@@ -53,6 +53,10 @@ $(function() {
         location.href = "details.html?courseId=" + courseId;
     });
 
+    $("#unregisterBtn").on("click", function() {
+        location.href = "courses.html";
+    });
+
     //cancel back to details
     $("#cancelBtn").on("click", function() {
         location.href = "details.html?courseId=" + courseId;

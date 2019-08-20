@@ -82,6 +82,10 @@ $(function() {
         allData = data;
     });
 
+    $("#addCourseBtn").on("click", function() {
+        location.href = "add_course.html";
+    });
+
     //displays all courses currently offered when clicked
     $("#viewAllBtn").on("click", function() {
         $("#coursesBody").empty();
