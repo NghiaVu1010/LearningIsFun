@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     
     <link rel="stylesheet" type="text/css" href="styles/site.css" />
-    <link rel="stylesheet" type="text/css" href="styles/details.css" />
+    <link rel="stylesheet" type="text/css" href="styles/add_course.css" />
     <link rel="shortcut icon" type="image/png" href="images/icon.png"/>
     <title>Roberto Institute of Technology</title>
   </head>
@@ -20,7 +20,7 @@
   <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
       <a class="navbar-brand obli" href="index.html">RIT</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
         
@@ -35,21 +35,69 @@
     </nav>
 
     <main>
-      <h1 class="white obli space-top data-point">Course Details</h1>
-
-      <!-- Display details in a table -->
-      <div class="container">
+      <div class="container mt-5">
         <div class="row">
-          <table class="col-md-8 table table-striped table-hover table-dark" id="coursesTable">
-            <thead id="coursesHead"></thead>
-            <tbody id="coursesBody"></tbody>
-          </table>
-          <div class="w-100"></div>
-          <!-- Buttons to register or cancel-->
-          <input type="button" class="col-md-2 btn btn-outline-primary bold" id="registerBtn" value="Register" />
-          <input type="button" class="col-md-2 btn btn-outline-warning bold" id="unregisterBtn" value="Unregister" />
-          <input type="button" class="col-md-2 btn btn-outline-danger bold" id="deleteBtn" value="Delete" />
-          <input type="button" class="col-md-2 btn btn-outline-secondary bold" id="cancelBtn" value="Cancel" />
+          <form class="offset-3 col-lg-6" id="courseForm">  
+            <fieldset class="white border-primary">
+              <legend class="display-5 obli text-center">Course Info:</legend>
+              
+              <!-- Form Group -->
+              <div class="form-group">
+                <label for="addId">Course ID</label>
+                <input type="text" class="form-control" id="addId" name="courseid" />
+                <small id="idError"></small>
+              </div>  
+
+              <div class="form-group">
+                <label for="addTitle">Title</label>
+                <input type="text" class="form-control" id="addTitle" name="title" />
+                <small id="titleError"></small>
+              </div>
+
+              <div class="form-group">
+                <label for="coursesDDL" class="white">Category: </label>
+                <select class="custom-select" id="coursesDDL" name="category" required>
+                  <option selected value="">Choose...</option>
+                </select>
+                <small id="categoryError"></small>
+              </div>
+
+              <div class="form-group">
+                <label for="addLocation">Location</label>
+                <input type="text" class="form-control" id="addLocation" name="location" />
+                <small id="locationError"></small>
+              </div>
+
+              <div class="form-group">
+                <label for="addStart">Start Date</label>
+                <input type="text" class="form-control" id="addStart" name="startdate" />
+              </div>
+
+              <div class="form-group">
+                <label for="addDelete">End Date</label>
+                <input type="text" class="form-control" id="addDelete" name="enddate" />
+              </div>
+
+              <div class="form-group">
+                <label for="addMeet">Meets</label>
+                <input type="text" class="form-control" id="addMeet" name="meets" />
+              </div>
+
+              <div class="form-group">
+                <label for="addFee">Fee</label>
+                <input type="text" class="form-control" id="addFee" name="fee" />
+              </div>
+
+              <div id="msgDiv"> 
+                <ul id="errorMessages"></ul> 
+              </div>
+              
+              <div class="offset-1">
+                <input type="button" class="col-lg-5 btn btn-outline-success bold" id="addCourseBtn" value="Add" />
+                <input type="button" class="col-lg-5 btn btn-outline-secondary bold" id="cancelBtn" value="Cancel" />
+              </div>
+            </fieldset>
+          </form>
         </div>
       </div>
     </main>
@@ -65,6 +113,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     
-    <script src="scripts/details.js"></script>
+    <script src="scripts/add_course.js"></script>
   </body>
 </html>

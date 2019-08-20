@@ -34,12 +34,12 @@ $(function() {
 
     //send back to details after registration
     $("#registerBtn").on("click", function() {
-        if($("#nameField").val() == "") {
+        if($("#nameField").val().trim() == "") {
             $("#emailError").text("");
             $("#nameError").text("\u2022 Please enter your name.");
             return false;
         }
-        else if($("#emailField").val() == "") {
+        else if($("#emailField").val().trim() == "") {
             $("#nameError").text("");
             $("#emailError").text("\u2022 Please enter your email.");
             return false;

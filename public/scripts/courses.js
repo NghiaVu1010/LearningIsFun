@@ -32,6 +32,7 @@ function insertTableRow(list) {
     "</td><td>" + courseTitle + 
     "</td><td>" + courseMeets + 
     "</td><td><a href='details.html?courseId=" + courseId + "'>View Details</a>" + 
+    "</td><td><a href='edit_details.html?courseId=" + courseId + "'>Edit Details</a>" + 
     "</a></td></tr>";
 
     $("#coursesBody").append(element);
