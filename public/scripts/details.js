@@ -62,6 +62,14 @@ $(function() {
         location.href = "register.html?courseId=" + courseId;
     });
 
+    $("#unregisterBtn").on("click", function() {
+        alert("Coming soon");
+    });
+
+    $("#deleteBtn").on("click", function() {
+        alert("Coming soon");
+    });
+
     //cancel back to courses
     $("#cancelBtn").on("click", function() {
         location.href = "courses.html";

@@ -32,6 +32,7 @@ function insertTableRow(list) {
     "</td><td>" + courseTitle + 
     "</td><td>" + courseMeets + 
     "</td><td><a href='details.html?courseId=" + courseId + "'>View Details</a>" + 
+    "</td><td><a href='edit_details.html?courseId=" + courseId + "'>Edit Details</a>" + 
     "</a></td></tr>";
 
     $("#coursesBody").append(element);
@@ -80,6 +81,10 @@ $(function() {
     let allData;
     $.getJSON("/api/courses", function(data) {
         allData = data;
+    });
+
+    $("#addCourseBtn").on("click", function() {
+        location.href = "add_course.html";
     });
 
     //displays all courses currently offered when clicked
