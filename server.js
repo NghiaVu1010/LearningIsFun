@@ -82,6 +82,12 @@ app.get('/index.html', function (req, res) {
  app.get('/register.html', function (req, res) {
     res.sendFile( __dirname + "/public/" + "register.html" );
  })
+ app.get('/add_course.html', function (req, res) {
+    res.sendFile( __dirname + "/public/" + "add_course.html" );
+ })
+ app.get('/edit_details.html', function (req, res) {
+    res.sendFile( __dirname + "/public/" + "edit_details.html" );
+ })
 
  /* THIS CODE ALLOWS REQUESTS FOR THE API THROUGH */
  // GET CATEGORIES
