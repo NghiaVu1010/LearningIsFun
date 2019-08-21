@@ -47,11 +47,39 @@
           <div class="w-100"></div>
           <!-- Buttons to register or cancel-->
           <input type="button" class="col-md-2 btn btn-outline-primary bold" id="registerBtn" value="Register" />
-          <input type="button" class="col-md-2 btn btn-outline-warning bold" id="unregisterBtn" value="Unregister" />
           <input type="button" class="col-md-2 btn btn-outline-danger bold" id="deleteBtn" value="Delete" />
           <input type="button" class="col-md-2 btn btn-outline-secondary bold" id="cancelBtn" value="Cancel" />
         </div>
       </div>
+
+      <!-- Modal -->
+      <div class="modal fade" tabindex="-1" id="unregisterModal" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+
+            <div class="modal-header">
+              <h5 class="modal-title">Unregister?</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="modal-body">Are you sure you want to unregister?</div>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-outline-danger" id="cancelModalBtn" data-dismiss="modal">Cancel</button>
+              <button type="button" class="btn btn-outline-primary" id="confirmModalBtn" data-dismiss="modal">Confirm</button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
     </main>
 
     <footer class="container white">

@@ -12,6 +12,7 @@
 */
 function showData(prop, value) {
     let element;
+    let remove;
 
     //check to see if students key, then append each one
     if(prop == "Students") {
@@ -28,6 +29,9 @@ function showData(prop, value) {
                 element = "<tr><td>" + value[i].StudentName + "</td><td>" + value[i].Email + "</td></tr>"
 
                 $("#coursesBody").append(element);
+
+                remove = $("<input>", {type: "button", class: "bg-danger float-right", id: "student" + i, value: "x"});
+                $("#coursesBody tr td:last").append(remove);
             }
             return false;
         }
@@ -43,27 +47,51 @@ function showData(prop, value) {
     $("#coursesBody").append(element);
 }
 
+function removeStudent(serial) {
+    $.post("api/unregister", serial, function(data) {
+
+    })
+        .done(function() {
+            alert("Unregistered successfully!");
+            location.reload();
+            //location.href = "details.html?courseId=" + courseId;
+        })
+        .fail(function() {
+            alert("There was a problem, please try again.");
+        });
+
+    return false;
+}
+
 $(function() {
     let urlParams = new URLSearchParams(location.search);
     let courseId = urlParams.get("courseId");
 
     //grab course data and show
     let objs;
+    let captainCrunch;
     $.getJSON("/api/courses/" + courseId, function(data) {
         objs = data;
         
         for(let i in objs) {
             showData(i, objs[i])
         }
+
+        for(let i = 0; i < objs.Students.length; i++) {
+            $("#student" + i).on("click", function() {
+                captainCrunch = 
+                "courseid=" + courseId + 
+                "&studentname=" + objs.Students[i].StudentName + 
+                "&email=" + objs.Students[i].Email;
+
+                $("#unregisterModal").modal(focus);
+            });
+        }
     });
 
     //link to registration for current class
     $("#registerBtn").on("click", function() {
         location.href = "register.html?courseId=" + courseId;
-    });
-
-    $("#unregisterBtn").on("click", function() {
-        alert("Coming soon");
     });
 
     $("#deleteBtn").on("click", function() {
@@ -73,5 +101,9 @@ $(function() {
     //cancel back to courses
     $("#cancelBtn").on("click", function() {
         location.href = "courses.html";
+    });
+
+    $("#confirmModalBtn").on("click", function () {
+        removeStudent(captainCrunch);
     });
 });

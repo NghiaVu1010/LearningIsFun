@@ -7,7 +7,9 @@
 
 //send the data to server
 function registerCourse() {
-    $.post("api/register", $("#registerForm").serialize(), function(data) {})
+    $.post("api/register", $("#registerForm").serialize(), function(data) {
+
+    })
         .done(function() {
             alert("Registered successfully!");
         })
@@ -16,6 +18,33 @@ function registerCourse() {
         });
 
     return false;
+}
+
+function validateForm() {
+    let errMsg = [];
+    let allInput = $("input[type='text']");
+    let regExp = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+
+    for(let i = 0; i < allInput.length; i++){
+        if($("#" + allInput[i].id).val().trim() == "") {
+            errMsg[errMsg.length] = allInput[i].name + " is required";
+        }
+    }
+
+    if(regExp.test($("#emailField").val()) == false) {
+        errMsg[errMsg.length] = "Please enter a valid email";
+    }
+
+    $("#errorMessages").empty();
+    if (errMsg.length == 0) {
+        return true;
+    }
+    else {
+        for(let i = 0; i < errMsg.length; i++) {
+            $("<li>" + errMsg[i] + "</li>").appendTo($("#errorMessages"));
+        }
+        return false;
+    }
 }
 
 $(function() {
@@ -34,20 +63,11 @@ $(function() {
 
     //send back to details after registration
     $("#registerBtn").on("click", function() {
-        if($("#nameField").val().trim() == "") {
-            $("#emailError").text("");
-            $("#nameError").text("\u2022 Please enter your name.");
-            return false;
-        }
-        else if($("#emailField").val().trim() == "") {
-            $("#nameError").text("");
-            $("#emailError").text("\u2022 Please enter your email.");
-            return false;
-        }
-        else {
-            $("#nameError").text("");
-            $("#emailError").text("");
-        }
+        let isValid = validateForm();
+
+        if(isValid == false) return;
+
+        //console.log($("#registerForm").serialize());
 
         registerCourse();
         location.href = "details.html?courseId=" + courseId;
